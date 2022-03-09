@@ -10,6 +10,15 @@ export default function App() {
 
   console.log({ data });
 
+  useEffect(() => {
+    if (dataType === "") {
+      return
+    }
+    fetch(`https://swapi.dev/api/${dataType}/`)
+      .then(response => response.json())
+      .then(obj => setData(obj))
+
+  }, [dataType])
   // Write code here.
   //
 
